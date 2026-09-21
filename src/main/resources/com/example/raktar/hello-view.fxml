@@ -67,7 +67,7 @@
                         <Insets top="170.0" />
                      </VBox.margin>
                      <children>
-                        <ImageView fx:id="iv_torolbal" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="iv_torolbal" onMouseClicked="torolbal" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@del.png" />
                            </image>
