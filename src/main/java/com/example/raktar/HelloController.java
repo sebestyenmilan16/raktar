@@ -7,6 +7,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class HelloController {
@@ -159,4 +161,25 @@ public class HelloController {
 
     }
 
+    public void mentes(ActionEvent actionEvent) {
+
+        try (BufferedWriter  bw = new BufferedWriter(new FileWriter("raktar.dat"))) {
+
+            for (int i=0;i<raktar1.size();i++) {
+                bw.write((i+1)+";"+raktar1.get(i)+"\n");
+            }
+            bw.write("\n");
+            for (int i=0;i<raktar2.size();i++) {
+                bw.write((i+1)+";"+raktar2.get(i)+"\n");
+            }
+
+        }
+        catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hiba!");
+            alert.setHeaderText("Hiba a fájlmentés során.");
+            alert.showAndWait();
+        }
+
+    }
 }
