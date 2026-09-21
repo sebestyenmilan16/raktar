@@ -2,10 +2,7 @@ package com.example.raktar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -121,7 +118,44 @@ public class HelloController {
 
         int id = lv_rak1.getSelectionModel().getSelectedIndex();
 
+        if (lv_rak1.getSelectionModel().getSelectedIndex() == -1) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hiba!");
+            alert.setHeaderText("Nincs kiválasztott sor.");
+            alert.showAndWait();
+        }
+        else {
+            raktar1.remove(id);
+            lv_rak1.getItems().clear();
+            for (int i=0;i<raktar1.size();i++) {
+                lv_rak1.getItems().add(raktar1.get(i));
+            }
+            lv_rak1.getSelectionModel().select(raktar1.size()-1);
+        }
 
+
+
+
+    }
+
+    public void toroljobb(MouseEvent mouseEvent) {
+
+        int id = lv_rak2.getSelectionModel().getSelectedIndex();
+
+        if (id == -1) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hiba!");
+            alert.setHeaderText("Nincs kiválasztott sor.");
+            alert.showAndWait();
+        }
+        else {
+            raktar2.remove(id);
+            lv_rak2.getItems().clear();
+            for (int i=0;i<raktar2.size();i++) {
+                lv_rak2.getItems().add(raktar2.get(i));
+            }
+            lv_rak2.getSelectionModel().select(raktar2.size()-1);
+        }
 
     }
 
